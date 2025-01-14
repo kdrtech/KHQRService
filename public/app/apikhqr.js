@@ -1,6 +1,6 @@
 
-import controller from './controller.js';
-import view from './view.js';
+import controller from 'https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/controller.js';
+import view from 'https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/view.js';
 
 
 const ApiKhqrModule = {

@@ -1,5 +1,5 @@
 
-import apikhqr from './apikhrApi.js';
+import apikhqr from 'https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/apikhrApi.js';
 
 var apiClient = null;
 var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiYWZhNzI1M2ZkOGJmNGE4ZiJ9LCJpYXQiOjE3MzY4NzQ2MzUsImV4cCI6MTc0NDY1MDYzNX0.gW4DUAexcHZ";
