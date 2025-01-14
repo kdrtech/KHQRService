@@ -24,4 +24,5 @@ const ApiKhqrModule = {
        callback(res);
     }
 }
-export default ApiKhqrModule;
+window.ApiKhqrModule = ApiKhqrModule;
+//export default ApiKhqrModule;
