@@ -5,24 +5,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
         integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
 
     <!-- <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService/public/app/apikhqr.js?v=23"> -->
 
     </script>
     <script src="crypto-js.min.js"></script>
-    <script src="./app/apikhqr.js">
+    <script src="./app/dummy_account.js"></script>
+    <script src="./app/apikhqr.mine.js">
     </script>
     <script>
         $(document).ready(function () {
             ///Configuration
             window.ApiKhqrModule.setAxios(axios, new window.khrsdk.BakongKHQR(), window.khrsdk,);
-            var apiToken = "00020101021229200016kuch_darith@aclb5204599953031165405100005802KH5911Kuch Darith6010Phnom Penh62390211855987918020308ShipGlow0708ShipGlow99170013173696631665363046152";
-            var bakongAccountId = "kuch_darith@aclb"; //requred
-            var acountName = "kuch darith"; //requird
-            var accountCity = "Phnom Penh"; //required
-            var accountEmail = "darithkuch@outlook.com"; //required
+            var apiToken = AccountTesting.apiToken;
+            var bakongAccountId = AccountTesting.bakongAccountId; //requred
+            var acountName = AccountTesting.acountName; //requred
+            var accountCity = AccountTesting.accountCity; //requred
+            var accountEmail = AccountTesting.accountEmail; //requred
             window.ApiKhqrModule.config(bakongAccountId, acountName, accountCity, apiToken, accountEmail);
             //Listen payment status
             window.ApiKhqrModule.onPaymentStatus = (data) => {
@@ -39,11 +40,11 @@
             function generateDeeplinik() {
                 (async () => {
                     const data = {
-                        mobileNumber: "85598791802",//optional
-                        storeLabel: "ShipGlow",//optional
-                        amount: 1000, //requred
-                        terminalLabel: "ShipGlow", //optional
-                        currency: "KHR" //required
+                        mobileNumber: AccountTesting.mobileNumber,//optional
+                        storeLabel: AccountTesting.storeLabel,//optional
+                        amount: AccountTesting.amount, //requred
+                        terminalLabel: AccountTesting.terminalLabel, //optional
+                        currency: AccountTesting.currency, //required -> "KHR", "USD"
                     };
                     await window.ApiKhqrModule.startGernerateKhqr(data);
                 })();
