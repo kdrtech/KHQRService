@@ -23,6 +23,7 @@ This is the  documents not officail by Bakong NBC **KHQR Documents**, which prov
 <img src="./public/tutorials/images/khqr-sample.png" alt="Sample KHQR" width="300"/>
 
 
+
 ## License
 You are free to use, modify, and distribute this software in accordance with the following terms:
 - Usage: This software is provided "as is," without any express or implied warranties, including, but not limited to, warranties of merchantability or fitness for a particular purpose.
@@ -33,3 +34,22 @@ You are free to use, modify, and distribute this software in accordance with the
 
 Refer to the navigation menu for more details about each module.
 
+
+## Support Us
+Hello everyone 👋
+
+If you want to support me, feel free to do so. 
+
+Thanks
+
+============================================
+
+សួស្ដី អ្នកទាំងអស់គ្នា👋 
+
+បើ​អ្នក​ចង់​គាំទ្រ​ខ្ញុំ សូម​ធ្វើ​ដោយ​សេរី , 
+
+សូមអរគុណ
+
+<a  href="https://www.buymeacoffee.com/kdrtech" target="_blank">
+<img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" height="41" />
+</a>
