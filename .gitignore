@@ -1,0 +1,28 @@
+# Node modules
+/node_modules/
+
+# Build output
+/dist/
+/build/
+
+# Log files
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE or editor folders
+.idea/
+.vscode/
+
+# Environment files
+.env
+
+# npm package lock file (optional, if you want to ignore the lock file)
+package-lock.json
+
+# Dependency directory for JSDoc generated docs
+
+# Temporary files
+*.tmp

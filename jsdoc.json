@@ -1,0 +1,23 @@
+{
+    "tags": {
+      "allowUnknownTags": true,
+      "dictionaries": ["jsdoc"]
+    },
+    "source": {
+      "include": ["src"],        
+      "includePattern": ".+\\.js$", 
+      "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "plugins": [],
+    "templates": {
+      "cleverLinks": false,
+      "monospaceLinks": false
+    },
+    "opts": {
+      "destination": "./public/doc",     
+      "tutorials": "./public/tutorials",
+      "recurse": true,            
+      "readme": "README.md"     
+    }
+  }
+  
