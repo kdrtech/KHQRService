@@ -5,7 +5,7 @@ Welcome to the tutorial! This guide will walk you through the basics of using ou
 ## Step 1: Add apikhqr.js header
 ```html
 <head>
-    <script src="./app/dist/bundle.js"></script>
+    <script src="./app/dist/khqr-sdk.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
@@ -18,11 +18,11 @@ Welcome to the tutorial! This guide will walk you through the basics of using ou
     $(document).ready(function () {
         ///Configuration
         window.ApiKhqrModule.setAxios(axios, new window.khrsdk.BakongKHQR(), khrsdk,);
-        var apiToken = "00020101021229200016kuch_darith@aclb5204599953031165405100005802KH5911Kuch Darith6010Phnom Penh62390211855987918020308ShipGlow0708ShipGlow99170013173696631665363046152";
-        var bakongAccountId = "kuch_darith@aclb"; //requred
+        var apiToken = "000201010212292000162***********";
+        var bakongAccountId = "************@aclb"; //requred
         var acountName = "kuch darith"; //requird
         var accountCity = "Phnom Penh"; //required
-        var accountEmail = "darithkuch@outlook.com"; //required
+        var accountEmail = "************@gmail.com"; //required
         window.ApiKhqrModule.config(bakongAccountId, acountName, accountCity, apiToken, accountEmail);
         //Listen payment status
         window.ApiKhqrModule.onPaymentStatus = (data) => {
@@ -39,9 +39,9 @@ Welcome to the tutorial! This guide will walk you through the basics of using ou
         function generateDeeplinik() {
             (async () => {
                 const data = {
-                    mobileNumber: "85598791802",//optional
+                    mobileNumber: "**********",//optional
                     storeLabel: "ShipGlow",//optional
-                    amount: 1000, //requred
+                    amount: 10, //requred
                     terminalLabel: "ShipGlow", //optional
                     currency: "KHR" //required
                 };
