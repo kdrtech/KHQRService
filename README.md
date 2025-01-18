@@ -5,7 +5,8 @@ This is the  documents not officail by Bakong NBC **KHQR Documents**, which prov
 - How to use ***apikhqr***.
 - How to intergrate ***apikhqr*** with web broswer as client site.
 - Tutorials for beginners to get started quickly.
-
+- Support individual KHQR generate.
+- Support client site run on web broswer.
 ---
 
 ## Features
