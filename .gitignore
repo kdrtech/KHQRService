@@ -5,6 +5,7 @@
 /dist/
 /build/
 public/app/apikhqr.js
+public/app/dummy_account.js
 # Log files
 *.log
 
