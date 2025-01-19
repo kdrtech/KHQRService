@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <link href="https://db.onlinewebfonts.com/c/41b0b77bc0981190f8ce0467c29ae189?family=Ronnia" rel="stylesheet">
     <script src="./app/dist/khqr-sdk.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
         integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
@@ -13,27 +14,27 @@
     </script>
     <script src="crypto-js.min.js"></script>
     <script src="./app/dummy_account.js"></script>
-    <script src="./app/apikhqr.mine.js">
+    <script src="./app/apikhqr.js">
     </script>
     <script>
         $(document).ready(function () {
             ///Configuration
-            window.ApiKhqrModule.setAxios(axios, new window.khrsdk.BakongKHQR(), window.khrsdk,);
+            ApiKhqrModule.getKHQR().setAxios(axios, new window.khrsdk.BakongKHQR(), window.khrsdk,);
             var apiToken = AccountTesting.apiToken;
             var bakongAccountId = AccountTesting.bakongAccountId; //requred
             var acountName = AccountTesting.acountName; //requred
             var accountCity = AccountTesting.accountCity; //requred
             var accountEmail = AccountTesting.accountEmail; //requred
-            window.ApiKhqrModule.config(bakongAccountId, acountName, accountCity, apiToken, accountEmail);
+            ApiKhqrModule.getKHQR().config(bakongAccountId, acountName, accountCity, apiToken, accountEmail, false);
             //Listen payment status
-            window.ApiKhqrModule.onPaymentStatus = (data) => {
-                alert(data.message);
+            ApiKhqrModule.getKHQR().onPaymentStatus = (data) => {
+                alert("Your status payment status: " + data.message);
             }
             $('#btnCheckAccount').click(function () {
                 generateDeeplinik();
             });
             $('#btnCheckTransaction').click(function () {
-                window.ApiKhqrModule.checkTransactionStatus((data) => {
+                ApiKhqrModule.getKHQR().checkTransactionStatus((data) => {
                     console.log(data);
                 });
             });
@@ -46,9 +47,12 @@
                         terminalLabel: AccountTesting.terminalLabel, //optional
                         currency: AccountTesting.currency, //required -> "KHR", "USD"
                     };
-                    await window.ApiKhqrModule.startGernerateKhqr(data);
+                    ApiKhqrModule.getKHQR().startGernerateKhqr(data);
                 })();
             }
+            //ApiKhqrModule.getKHQR().getQRView(true);
+            document.getElementById("khqr-body").innerHTML = "";
+            //document.getElementById("khqr-body").innerHTML = ApiKhqrModule.getKHQR().getQRView();
         });
     </script>
     <style>
@@ -84,8 +88,11 @@
 
         <br>
         <br>
+     
 
         <a href="#" class="border" id="btnCheckTransaction"> Check Transaction</a>
+        <!-- <div id="qr_main"></div> -->
+        <div id="khqr-body"></div>
 
     </div>
 </body>
