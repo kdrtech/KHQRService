@@ -1,58 +1,44 @@
 <html>
 
 <head>
-    <link href="https://db.onlinewebfonts.com/c/41b0b77bc0981190f8ce0467c29ae189?family=Ronnia" rel="stylesheet">
     <script src="./app/dist/khqr-sdk.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
 
     <!-- <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService/public/app/apikhqr.js?v=23"> -->
 
     </script>
-    <script src="crypto-js.min.js"></script>
     <script src="./app/dummy_account.js"></script>
     <script src="./app/apikhqr.js">
     </script>
     <script>
+        ApiKhqrModule.getKHQR().onInitSDK(window.AccountTesting.apkKey, {
+            showDialog: true,
+            allowClose: true,
+            alertSuccess: true
+        }
+        );
         $(document).ready(function () {
-            ///Configuration
-            ApiKhqrModule.getKHQR().setAxios(axios, new window.khrsdk.BakongKHQR(), window.khrsdk,);
-            var apiToken = AccountTesting.apiToken;
-            var bakongAccountId = AccountTesting.bakongAccountId; //requred
-            var acountName = AccountTesting.acountName; //requred
-            var accountCity = AccountTesting.accountCity; //requred
-            var accountEmail = AccountTesting.accountEmail; //requred
-            ApiKhqrModule.getKHQR().config(bakongAccountId, acountName, accountCity, apiToken, accountEmail, false);
-            //Listen payment status
-            ApiKhqrModule.getKHQR().onPaymentStatus = (data) => {
-                alert("Your status payment status: " + data.message);
-            }
             $('#btnCheckAccount').click(function () {
-                generateDeeplinik();
+                generatQR();
             });
             $('#btnCheckTransaction').click(function () {
                 ApiKhqrModule.getKHQR().checkTransactionStatus((data) => {
                     console.log(data);
                 });
             });
-            function generateDeeplinik() {
+            ApiKhqrModule.getKHQR().onPaymentStatus = (data) => {
+
+            }
+            function generatQR() {
                 (async () => {
-                    const data = {
-                        mobileNumber: AccountTesting.mobileNumber,//optional
-                        storeLabel: AccountTesting.storeLabel,//optional
-                        amount: AccountTesting.amount, //requred
-                        terminalLabel: AccountTesting.terminalLabel, //optional
-                        currency: AccountTesting.currency, //required -> "KHR", "USD"
-                    };
-                    ApiKhqrModule.getKHQR().startGernerateKhqr(data);
+                    ApiKhqrModule.getKHQR().startGernerateKHQR({
+                        amount: 100
+                    });
                 })();
             }
-            //ApiKhqrModule.getKHQR().getQRView(true);
             document.getElementById("khqr-body").innerHTML = "";
-            //document.getElementById("khqr-body").innerHTML = ApiKhqrModule.getKHQR().getQRView();
+            document.getElementById("khqr-body").innerHTML = ApiKhqrModule.getKHQR().getQRView();
         });
     </script>
     <style>
@@ -78,22 +64,15 @@
 </head>
 
 <body style="text-align: center;">
-    <div style="line-height: 39px;text-align: center;max-width: 600px;margin: 50px auto;">
-        <!-- <div id="qrcode"></div> -->
+    <div style="font-family: Ronnia;line-height: 39px;text-align: center;max-width: 600px;margin: 50px auto;">
         Click Pay with KHQR<br>
         <a href="#" id="btnCheckAccount" style="margin-bottom: 50px;">
-
             <img class="logo" src="./image/KHQRLogored.svg" width="80px" />
         </a>
-
         <br>
         <br>
-     
-
         <a href="#" class="border" id="btnCheckTransaction"> Check Transaction</a>
-        <!-- <div id="qr_main"></div> -->
-        <div id="khqr-body"></div>
-
+        <div id="khqr-body" style="margin: 0 auto;width: 330px;"></div>
     </div>
 </body>
 
