@@ -42,7 +42,47 @@ This is the  documents not officail by Bakong NBC **KHQR Documents**, which prov
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/dist/APIKhqrSDK.js"></script>
 </head>
+//Init  api
+<script>
+    ApiKhqrModule.getKHQR().onInitSDK(window.AccountTesting.apkKey, {
+        showDialog: true,
+        allowClose: true,
+        alertSuccess: true
+    });
+</script>
 ```
+## ApiKhqrModule
+- window.AccountTesting.apkKey : This is your api see on your profile on morcambodia.com(please replace your apikey).
+- showDialog : Generate KHQR two type if true mean show popup dialog else you can get KHQR to replace where you want to show.
+- allowClose : Allow when generate KHQR let user close popup if ture will show button close else not(note will effect if you set showDialog as true)
+- alertSuccess : Allow when payment completed will show dialog, if true show else not show.
+## Events
+1. onPaymentStatus : This function when payment completed will call.
+```
+ApiKhqrModule.getKHQR().onPaymentStatus = (data) => {
+
+}
+```
+2. startGernerateKHQR : Allow you start generate your KHQR. note must be use async funtion to call startGernerateKHQR.
+```
+ (async () => {
+    ApiKhqrModule.getKHQR().startGernerateKHQR({
+        amount: 100
+    });
+ })();
+```
+- amount: Total amount you want to generate KHHQR.
+3. getQRView : Allow you get KHQR view to show where you want. This function effect when you set showDialog = false. 
+```
+
+var khqrView = ApiKhqrModule.getKHQR().getQRView();
+
+Exmple:
+document.getElementById("khqr-body").innerHTML = "";
+document.getElementById("khqr-body").innerHTML = ApiKhqrModule.getKHQR().getQRView();
+
+```
+
 ## License
 You are free to use, modify, and distribute this software in accordance with the following terms:
 - Usage: This software is provided "as is," without any express or implied warranties, including, but not limited to, warranties of merchantability or fitness for a particular purpose.
