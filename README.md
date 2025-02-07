@@ -23,6 +23,11 @@ This is the  documents not officail by Bakong NBC **KHQR Documents**, which prov
 <img src="./public/tutorials/images/khqr-sample.png" alt="Sample KHQR" width="300"/>
 
 
+---
+
+## Here how to configuration
+- Register account with Bakong Open API for personal user. <a href="https://marketplace.visualstudio.com/items?itemName=Levampire.Buttur" target="_blank">link</a>
+
 
 ## License
 You are free to use, modify, and distribute this software in accordance with the following terms:

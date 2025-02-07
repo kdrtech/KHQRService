@@ -8,7 +8,7 @@ public/app/apikhqr.js
 public/app/dummy_account.js
 # Log files
 *.log
-
+package-lock.json
 # System files
 .DS_Store
 Thumbs.db
