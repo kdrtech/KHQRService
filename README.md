@@ -67,11 +67,13 @@ ApiKhqrModule.getKHQR().onPaymentStatus = (data) => {
 ```
  (async () => {
     ApiKhqrModule.getKHQR().startGernerateKHQR({
-        amount: 100
+        amount: 100,
+        currency: 'khr'
     });
  })();
 ```
 - amount: Total amount you want to generate KHHQR.
+- currency: Allow you set currency type (khr, usd) if you set from start genrate khqr ,the currency config on your account from server will ignore. 
 3. getQRView : Allow you get KHQR view to show where you want. This function effect when you set showDialog = false. 
 ```
 
