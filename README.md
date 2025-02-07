@@ -28,7 +28,7 @@ This is the  documents not officail by Bakong NBC **KHQR Documents**, which prov
 ## Here how to configuration
 - Register developer account with Bakong Open API for personal user. [Visit Link](https://api-bakong.nbc.gov.kh/register)
 - Register personal account for Bakong to receive money.  [Visit Link](https://bakong.nbc.gov.kh)
-- Register account with Morecambodia.com to USE our API. [Visit Link](https://morecambodia.com)
+- Register account with Morecambodia.com to us our API. [Visit Link](https://morecambodia.com)
 
 ## Before use API after register
 - Full verification for bakong personal account on your mobile.
