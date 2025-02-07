@@ -28,7 +28,8 @@
             function generatQR() {
                 (async () => {
                     ApiKhqrModule.getKHQR().startGernerateKHQR({
-                        amount: 100
+                        amount: 100,
+                        currency: 'khr'
                     });
                 })();
             }
