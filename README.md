@@ -34,6 +34,15 @@ This is the  documents not officail by Bakong NBC **KHQR Documents**, which prov
 - Full verification for bakong personal account on your mobile.
 - Confirm bakong api account with us.
 
+## How to use
+```
+<head>
+    <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/dist/khqr-sdk.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/dist/APIKhqrSDK.js">
+</head>
+```
 ## License
 You are free to use, modify, and distribute this software in accordance with the following terms:
 - Usage: This software is provided "as is," without any express or implied warranties, including, but not limited to, warranties of merchantability or fitness for a particular purpose.
