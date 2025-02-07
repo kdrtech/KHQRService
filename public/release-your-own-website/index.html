@@ -1,47 +1,39 @@
 <html>
 <head>
     <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/dist/khqr-sdk.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/apikhqr.mine.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/dist/APIKhqrSDK.js"></script>
 
-    <script src="./app/dummy_account.js"></script>
+    <script src="../app/dummy_account.js"></script>
     <script>
+        ApiKhqrModule.getKHQR().onInitSDK(window.AccountTesting.apkKey, {
+            showDialog: true,
+            allowClose: true,
+            alertSuccess: true
+        }
+        );
         $(document).ready(function () {
-            ///Configuration
-            window.ApiKhqrModule.setAxios(axios, new window.khrsdk.BakongKHQR(), window.khrsdk,);
-            var apiToken = AccountTesting.apiToken;
-            var bakongAccountId = AccountTesting.bakongAccountId; //requred
-            var acountName = AccountTesting.acountName; //requred
-            var accountCity = AccountTesting.accountCity; //requred
-            var accountEmail = AccountTesting.accountEmail; //requred
-            window.ApiKhqrModule.config(bakongAccountId, acountName, accountCity, apiToken, accountEmail);
-            //Listen payment status
-            window.ApiKhqrModule.onPaymentStatus = (data) => {
-                alert(data.message);
-            }
             $('#btnCheckAccount').click(function () {
-                generateDeeplinik();
+                generatQR();
             });
             $('#btnCheckTransaction').click(function () {
-                window.ApiKhqrModule.checkTransactionStatus((data) => {
+                ApiKhqrModule.getKHQR().checkTransactionStatus((data) => {
                     console.log(data);
                 });
             });
-            function generateDeeplinik() {
+            ApiKhqrModule.getKHQR().onPaymentStatus = (data) => {
+
+            }
+            function generatQR() {
                 (async () => {
-                    const data = {
-                        mobileNumber: AccountTesting.mobileNumber,//optional
-                        storeLabel: AccountTesting.storeLabel,//optional
-                        amount: AccountTesting.amount, //requred
-                        terminalLabel: AccountTesting.terminalLabel, //optional
-                        currency: AccountTesting.currency, //required -> "KHR", "USD"
-                    };
-                    await window.ApiKhqrModule.startGernerateKhqr(data);
+                    ApiKhqrModule.getKHQR().startGernerateKHQR({
+                        amount: 100
+                    });
                 })();
             }
+            document.getElementById("khqr-body").innerHTML = "";
+            document.getElementById("khqr-body").innerHTML = ApiKhqrModule.getKHQR().getQRView();
         });
     </script>
     <style>
@@ -67,19 +59,15 @@
 </head>
 
 <body style="text-align: center;">
-    <div style="line-height: 39px;text-align: center;max-width: 600px;margin: 50px auto;">
-        <!-- <div id="qrcode"></div> -->
+    <div style="font-family: Ronnia;line-height: 39px;text-align: center;max-width: 600px;margin: 50px auto;">
         Click Pay with KHQR<br>
         <a href="#" id="btnCheckAccount" style="margin-bottom: 50px;">
-
-            <img class="logo" src="./image/KHQRLogored.svg" width="80px" />
+            <img class="logo" src="../image/KHQRLogored.svg" width="80px" />
         </a>
-
         <br>
         <br>
-
         <a href="#" class="border" id="btnCheckTransaction"> Check Transaction</a>
-
+        <div id="khqr-body" style="margin: 0 auto;width: 330px;"></div>
     </div>
 </body>
 
