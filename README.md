@@ -40,7 +40,7 @@ This is the  documents not officail by Bakong NBC **KHQR Documents**, which prov
     <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/dist/khqr-sdk.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
-    script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/dist/APIKhqrSDK.js">
+    <script src="https://cdn.jsdelivr.net/gh/kdrtech/KHQRService@latest/public/app/dist/APIKhqrSDK.js"></script>
 </head>
 ```
 ## License
