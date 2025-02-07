@@ -6,6 +6,7 @@
 /build/
 public/app/apikhqr.js
 public/app/dummy_account.js
+public/index.html
 # Log files
 *.log
 package-lock.json
