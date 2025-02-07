@@ -26,7 +26,7 @@ This is the  documents not officail by Bakong NBC **KHQR Documents**, which prov
 ---
 
 ## Here how to configuration
-- Register account with Bakong Open API for personal user. <a href="https://marketplace.visualstudio.com/items?itemName=Levampire.Buttur" target="_blank">link</a>
+- Register account with Bakong Open API for personal user. <a href="https://api-bakong.nbc.gov.kh/register" target="_blank">link</a>
 
 
 ## License
