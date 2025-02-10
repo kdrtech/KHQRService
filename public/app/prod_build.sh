@@ -12,6 +12,10 @@ fi
 #API_URL="" # The base API URL (e.g., "https://api-bakong.nbc.gov.kh")
 API_ENDPOINT="https://khqrapi.morecambodia.com/khqr/"  # The endpoint URL (e.g., "http://localhost:3050/khqr/")
 
+terser apikhqr.js --output dist/APIKhqrSDK.min.js --compress --mangle
+
+echo "APIKhqrSDK.min.js has been terser."
+
 # Replace the apiUrl and api in the JavaScript file using sed
 #sed -i '' "s|\"apiUrl\": \"[^\"]*\"|\"apiUrl\": \"$API_URL\"|g" dist/APIKhqrSDK.min.js
 # Replace the "api" URL in the JavaScript file using sed
