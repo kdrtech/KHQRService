@@ -19,6 +19,7 @@ fi
 #sed -i '' "s|\"api\": \"[^\"]*\"|\"api\": \"$API_ENDPOINT\"|g" dist/APIKhqrSDK.min.js
 #sed -i '' 's|http://localhost:3050/khqr/|https://khqrapi.morecambodia.com/khqr/|g' dist/APIKhqrSDK.min.js
 
+
 # Debug: Show the content of dist/APIKhqrSDK.min.js after replacement
 
 terser apikhqr.js --output dist/APIKhqrSDK.min.js --compress --mangle

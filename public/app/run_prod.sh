@@ -22,11 +22,8 @@ echo "APIKhqrSDK.min.js has been terser."
 # Replace the "api" URL in the JavaScript file using sed
 sed -i '' "s|\"api\": \"[^\"]*\"|\"api\": \"$API_ENDPOINT\"|g" dist/APIKhqrSDK.min.js
 sed -i '' 's|http://localhost:3050/khqr/|https://khqrapi.morecambodia.com/khqr/|g' dist/APIKhqrSDK.min.js
-
+sed -i '' 's|prod=!1|prod=true|g' dist/APIKhqrSDK.min.js
 # Debug: Show the content of dist/APIKhqrSDK.min.js after replacement
-
-
-
 
 # Obfuscate the JavaScript file
 javascript-obfuscator dist/APIKhqrSDK.min.js --output prod/APIKhqrSDK.js --compact true --control-flow-flattening true
